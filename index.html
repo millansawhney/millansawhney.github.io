@@ -4,14 +4,30 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Millan Sawhney | Pre-Med Portfolio</title>
+
+  <!-- SEO / link previews -->
+  <meta name="description" content="Millan Sawhney is a Biological Sciences student at Florida International University on the pre-med track, focused on orthopedics, sports medicine, and rehabilitation science." />
+  <meta property="og:title" content="Millan Sawhney | Pre-Med Portfolio" />
+  <meta property="og:description" content="Pre-med student at FIU building experience in clinical care, physical therapy, and musculoskeletal research." />
+  <meta property="og:image" content="https://millansawhney.github.io/headshot.JPG" />
+  <meta property="og:url" content="https://millansawhney.github.io" />
+  <meta name="theme-color" content="#1f5f4b" />
+
+  <!-- Inter was referenced in the CSS but never loaded — now it actually loads -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet" />
+
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
+<a href="#hero" class="skip-link">Skip to content</a>
+
 <header class="site-header">
-  <nav class="nav container">
+  <nav class="nav container" aria-label="Main navigation">
     <a href="#hero" class="logo">Millan Sawhney</a>
-    <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation">☰</button>
+    <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="nav-list">☰</button>
     <ul class="nav-list" id="nav-list">
       <li><a href="#about" class="nav-link">About</a></li>
       <li><a href="#experience" class="nav-link">Experience</a></li>
@@ -26,32 +42,40 @@
 
 <section id="hero" class="hero">
   <div class="container hero-grid">
-    <div>
+    <div class="reveal">
       <p class="eyebrow">Pre-Med Portfolio</p>
       <h1>Hi, I’m <span>Millan Sawhney.</span></h1>
       <p class="hero-text">
-        I’m a Biological Sciences student at Florida International University on the pre-med track,
-        building experience in clinical care, physical therapy shadowing, and future research in
-        biomechanics, rehabilitation science, and musculoskeletal medicine.
+        I’m a Biological Sciences student at Florida International University on the pre-med
+        track, gaining hands-on experience in clinical care and physical therapy while
+        preparing for research in biomechanics, rehabilitation science, and musculoskeletal medicine.
       </p>
       <div class="hero-buttons">
         <a href="#experience" class="btn btn-dark">View Experience</a>
         <a href="#contact" class="btn btn-light">Get in Touch</a>
+        <!-- Add a resume.pdf to the repo root, then uncomment:
+        <a href="./resume.pdf" class="btn btn-light" download>Download Resume</a>
+        -->
       </div>
     </div>
 
-    <div class="hero-card">
-     <img
-  src="./headshot.JPG"
-  alt="Professional headshot of Millan Sawhney"
-  class="profile-photo"
-/>
+    <div class="hero-card reveal">
+      <!-- TIP: rename headshot.JPG to headshot.jpg (lowercase) and compress it to
+           under ~200KB (e.g., squoosh.app) — it's likely the slowest part of the page. -->
+      <img
+        src="./headshot.JPG"
+        alt="Professional headshot of Millan Sawhney"
+        class="profile-photo"
+        width="800"
+        height="860"
+        fetchpriority="high"
+      />
       <p>Future physician interested in orthopedic surgery, sports medicine, and human performance.</p>
     </div>
   </div>
 </section>
 
-<section class="stats container">
+<section class="stats container reveal" aria-label="Key stats">
   <div><strong>3.85</strong><span>Overall GPA</span></div>
   <div><strong>4.00</strong><span>Science GPA</span></div>
   <div><strong>60+</strong><span>Clinical Hours</span></div>
@@ -59,20 +83,21 @@
 </section>
 
 <section id="about" class="section container two-column">
-  <div>
+  <div class="reveal">
     <p class="eyebrow">About Me</p>
     <h2>A growing interest in medicine, movement, and patient care.</h2>
   </div>
-  <div>
+  <div class="reveal">
     <p>
-      Strength training has been part of my life for the past five years, and it helped spark my
-      interest in how the human body adapts, recovers, and performs. That curiosity eventually led
-      me toward medicine, especially fields connected to anatomy, rehabilitation, and musculoskeletal health.
+      Strength training has been part of my life for the past five years, and it sparked my
+      interest in how the human body adapts, recovers, and performs. That curiosity led me
+      toward medicine — especially the fields connected to anatomy, rehabilitation, and
+      musculoskeletal health.
     </p>
     <p>
-      I am currently building my foundation through hospital volunteering, physical therapy shadowing,
-      and preparation for undergraduate research. My long-term goal is to become a physician who combines
-      scientific curiosity, clinical discipline, and meaningful patient care.
+      I’m building my foundation through hospital volunteering, physical therapy shadowing,
+      and preparation for undergraduate research. My long-term goal is to become a physician
+      who combines scientific curiosity, clinical discipline, and meaningful patient care.
     </p>
   </div>
 </section>
@@ -82,54 +107,55 @@
   <h2>Clinical and community experience</h2>
 
   <div class="card-grid">
-    <article class="experience-card">
+    <article class="experience-card reveal">
       <p class="tag">Clinical Experience</p>
       <h3>Clinical Volunteer</h3>
       <p class="meta">Broward Health North • 60+ hours • 12 hrs/week</p>
+      <!-- TODO: make this concrete — e.g., which unit, roughly how many patients
+           you interact with per shift, or one specific responsibility. -->
       <p>
-        Support patients, visitors, and hospital staff while gaining exposure to patient care,
-        hospital operations, and professional communication.
+        Support patients, visitors, and hospital staff on the floor — direct, weekly exposure
+        to patient care, hospital operations, and professional communication.
       </p>
     </article>
 
-    <article class="experience-card">
+    <article class="experience-card reveal">
       <p class="tag">Shadowing</p>
       <h3>Physical Therapy Shadowing</h3>
       <p class="meta">20+ hours</p>
       <p>
-        Observed rehabilitation sessions, patient evaluations, therapeutic exercise, and principles
-        of musculoskeletal recovery.
+        Observed rehabilitation sessions, patient evaluations, therapeutic exercise, and
+        principles of musculoskeletal recovery.
       </p>
     </article>
 
-    <article class="experience-card">
+    <article class="experience-card reveal">
       <p class="tag">Community Service</p>
       <h3>Parkland Library Volunteer</h3>
       <p class="meta">Oct 2021 – July 2025</p>
       <p>
-        Assisted with community programs, event logistics, and public-facing service in a welcoming
-        community environment.
+        Nearly four years of continuous service — supporting community programs, event
+        logistics, and public-facing operations.
       </p>
     </article>
 
-    <article class="experience-card">
+    <article class="experience-card reveal">
       <p class="tag">Past Experience</p>
       <h3>IT Genius LLC Intern</h3>
       <p class="meta">June 2024 – Sept 2024</p>
       <p>
-        Supported documentation, data organization, technical support, and operational tasks in a
-        collaborative office setting.
+        Handled documentation, data organization, and technical support for a small IT firm.
       </p>
     </article>
   </div>
 </section>
 
 <section id="interests" class="section container two-column">
-  <div>
-    <p class="eyebrow">Research Direction</p>
-    <h2>Areas I want to explore.</h2>
+  <div class="reveal">
+    <p class="eyebrow">Research Interests</p>
+    <h2>Where I want to take my research.</h2>
   </div>
-  <div>
+  <div class="reveal">
     <div class="chips">
       <span>Biomechanics</span>
       <span>Exercise Physiology</span>
@@ -158,25 +184,29 @@
   <h2>Building the foundation</h2>
 
   <div class="timeline">
-    <div><span>2021</span><p>Started long-term community service at Parkland Library.</p></div>
-    <div><span>2024</span><p>Completed IT internship and developed professional communication skills.</p></div>
-    <div><span>2025</span><p>Began pre-med track at Florida International University.</p></div>
-    <div><span>2026</span><p>Started hospital volunteering and physical therapy shadowing.</p></div>
-    <div><span>Next</span><p>Seeking undergraduate research in biomechanics, rehabilitation, or musculoskeletal science.</p></div>
+    <div class="reveal"><span>2021</span><p>Started long-term community service at Parkland Library.</p></div>
+    <div class="reveal"><span>2024</span><p>Completed IT internship and developed professional communication skills.</p></div>
+    <div class="reveal"><span>2025</span><p>Began pre-med track at Florida International University.</p></div>
+    <div class="reveal"><span>2026</span><p>Started hospital volunteering and physical therapy shadowing.</p></div>
+    <div class="reveal"><span>Next</span><p>Seeking undergraduate research in biomechanics, rehabilitation, or musculoskeletal science.</p></div>
   </div>
 </section>
 
 <section id="contact" class="section contact-section">
-  <div class="container contact-card">
-    <p class="eyebrow">Contact</p>
+  <div class="container contact-card reveal">
+    <p class="eyebrow eyebrow-light">Contact</p>
     <h2>Let’s connect.</h2>
     <p>
-      I welcome opportunities related to research, clinical volunteering, shadowing, mentorship,
-      and pre-medical development.
+      I welcome opportunities related to research, clinical volunteering, shadowing,
+      mentorship, and pre-medical development.
     </p>
     <div class="contact-buttons">
-      <a class="btn btn-dark" href="mailto:millansawhney@gmail.com">Say Hello</a>
-      <a class="btn btn-light" href="https://github.com/millansawhney" target="_blank">GitHub</a>
+      <a class="btn btn-invert" href="mailto:millansawhney@gmail.com">Email Me</a>
+      <!-- Recommended: swap GitHub for LinkedIn once your profile is set up —
+           it's the link pre-med reviewers actually expect.
+      <a class="btn btn-outline-light" href="https://www.linkedin.com/in/YOUR-HANDLE" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+      -->
+      <a class="btn btn-outline-light" href="https://github.com/millansawhney" target="_blank" rel="noopener noreferrer">GitHub</a>
     </div>
   </div>
 </section>
@@ -184,7 +214,7 @@
 </main>
 
 <footer>
-  <p>© 2026 Millan Sawhney</p>
+  <p>© <span id="year">2026</span> Millan Sawhney</p>
 </footer>
 
 <script src="script.js"></script>
