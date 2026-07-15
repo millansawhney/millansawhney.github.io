@@ -85,3 +85,44 @@ if (prefersReducedMotion || !("IntersectionObserver" in window)) {
 /* ---------- Keep the footer year current ---------- */
 const yearEl = document.getElementById("year");
 if (yearEl) yearEl.textContent = new Date().getFullYear();
+
+/* ---------- Count-up stats ---------- */
+const statEls = document.querySelectorAll(".stats strong[data-count]");
+
+function animateStat(el) {
+  const raw = el.dataset.count;
+  const suffix = el.dataset.suffix || "";
+  const decimals = (raw.split(".")[1] || "").length;
+  const target = parseFloat(raw);
+  const duration = 1200;
+  const start = performance.now();
+
+  function tick(now) {
+    const p = Math.min((now - start) / duration, 1);
+    const eased = 1 - Math.pow(1 - p, 3);
+    el.textContent = (target * eased).toFixed(decimals) + suffix;
+    if (p < 1) requestAnimationFrame(tick);
+  }
+  requestAnimationFrame(tick);
+}
+
+if (statEls.length) {
+  if (prefersReducedMotion || !("IntersectionObserver" in window)) {
+    statEls.forEach((el) => {
+      el.textContent = el.dataset.count + (el.dataset.suffix || "");
+    });
+  } else {
+    const statObserver = new IntersectionObserver(
+      (entries, obs) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            animateStat(entry.target);
+            obs.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.6 }
+    );
+    statEls.forEach((el) => statObserver.observe(el));
+  }
+}
