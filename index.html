@@ -16,8 +16,7 @@
   <!-- Inter was referenced in the CSS but never loaded — now it actually loads -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet" />
-
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,700;1,9..144,600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
@@ -75,11 +74,17 @@
   </div>
 </section>
 
+  <div class="ekg-divider container" aria-hidden="true">
+  <svg viewBox="0 0 900 60" preserveAspectRatio="none">
+    <path class="ekg-path" d="M0 30 L330 30 L344 23 L358 30 L378 30 L386 34 L396 6 L406 52 L414 30 L444 30 L460 21 L476 30 L900 30" />
+  </svg>
+</div>
+  
 <section class="stats container reveal" aria-label="Key stats">
-  <div><strong>3.85</strong><span>Overall GPA</span></div>
-  <div><strong>4.00</strong><span>Science GPA</span></div>
-  <div><strong>60+</strong><span>Clinical Hours</span></div>
-  <div><strong>20+</strong><span>Shadowing Hours</span></div>
+  <div><strong data-count="3.85">3.85</strong><span>Overall GPA</span></div>
+<div><strong data-count="4.00">4.00</strong><span>Science GPA</span></div>
+<div><strong data-count="60" data-suffix="+">60+</strong><span>Clinical Hours</span></div>
+<div><strong data-count="20" data-suffix="+">20+</strong><span>Shadowing Hours</span></div>
 </section>
 
 <section id="about" class="section container two-column">
